@@ -1,0 +1,56 @@
+<RCC>
+  <qresource prefix="HousePricePrediction">
+    <file>Icon.png</file>
+    <file>Resimler/base.svg</file>
+    <file>Resimler/branch-closed.svg</file>
+    <file>Resimler/branch-end.svg</file>
+    <file>Resimler/branch-more.svg</file>
+    <file>Resimler/branch-open.svg</file>
+    <file>Resimler/checkbox_checked.svg</file>
+    <file>Resimler/checkbox_checked_invert.svg</file>
+    <file>Resimler/checkbox_indeterminate.svg</file>
+    <file>Resimler/checkbox_indeterminate_invert.svg</file>
+    <file>Resimler/checkbox_unchecked.svg</file>
+    <file>Resimler/checkbox_unchecked_invert.svg</file>
+    <file>Resimler/checklist.svg</file>
+    <file>Resimler/checklist_indeterminate.svg</file>
+    <file>Resimler/checklist_indeterminate_invert.svg</file>
+    <file>Resimler/checklist_invert.svg</file>
+    <file>Resimler/close.svg</file>
+    <file>Resimler/downarrow.svg</file>
+    <file>Resimler/downarrow2.svg</file>
+    <file>Resimler/float.svg</file>
+    <file>Resimler/leftarrow.svg</file>
+    <file>Resimler/leftarrow2.svg</file>
+    <file>Resimler/radiobutton_checked.svg</file>
+    <file>Resimler/radiobutton_checked_invert.svg</file>
+    <file>Resimler/radiobutton_unchecked.svg</file>
+    <file>Resimler/radiobutton_unchecked_invert.svg</file>
+    <file>Resimler/rightarrow.svg</file>
+    <file>Resimler/rightarrow2.svg</file>
+    <file>Resimler/sizegrip.svg</file>
+    <file>Resimler/slider.svg</file>
+    <file>Resimler/splitter-horizontal.svg</file>
+    <file>Resimler/splitter-vertical.svg</file>
+    <file>Resimler/tab_close.svg</file>
+    <file>Resimler/toolbar-handle-horizontal.svg</file>
+    <file>Resimler/toolbar-handle-vertical.svg</file>
+    <file>Resimler/uparrow.svg</file>
+    <file>Resimler/uparrow2.svg</file>
+    <file>Resimler/vline.svg</file>
+  </qresource>
+  <qresource prefix="Mahalle">
+    <file>Resimler/Mahalle/Bluestem.png</file>
+    <file>Resimler/Mahalle/Brookside.png</file>
+    <file>Resimler/Mahalle/Crawfor.png</file>
+    <file>Resimler/Mahalle/Edwards.png</file>
+    <file>Resimler/Mahalle/Gilbert.png</file>
+    <file>Resimler/Mahalle/Mitchel.png</file>
+    <file>Resimler/Mahalle/Old Town.png</file>
+    <file>Resimler/Mahalle/Sawyer.png</file>
+    <file>Resimler/Mahalle/Somerset.png</file>
+    <file>Resimler/Mahalle/SWISU.png</file>
+    <file>Resimler/Mahalle/Timber.png</file>
+    <file>Resimler/Mahalle/Veenker.png</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,1723 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HousePricePredictionClass</class>
+ <widget class="QMainWindow" name="HousePricePredictionClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>402</width>
+    <height>420</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>House Price Prediction | Emre Demircan &amp; Berk Kılıçoğlu</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/HousePricePrediction/Icon.png</normaloff>:/HousePricePrediction/Icon.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/*  ------------------------------------------------------------------------  */
+/* QtMaterial - https://github.com/UN-GCPDS/qt-material
+/* By Yeison Cardona - GCPDS
+/*  ------------------------------------------------------------------------  */
+
+*{
+  color: #ffffff;
+
+  font-family: Roboto;
+
+  
+    font-size: 13px;
+  
+
+  
+    line-height: 13px;
+  
+
+  selection-background-color: #ffff5a;
+  selection-color: #000000;
+}
+
+*:focus {
+   outline: none;
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  Custom colors  */
+
+.danger{
+  color: #dc3545;
+  background-color: transparent;
+}
+
+.warning{
+  color: #ffc107;
+  background-color: transparent;
+}
+
+.success{
+  color: #17a2b8;
+  background-color: transparent;
+}
+
+.danger:disabled{
+  color: rgba(220, 53, 69, 0.4);
+  border-color: rgba(220, 53, 69, 0.4);
+}
+
+.warning:disabled{
+  color: rgba(255, 193, 7, 0.4);
+  border-color: rgba(255, 193, 7, 0.4);
+}
+
+.success:disabled{
+  color: rgba(23, 162, 184, 0.4);
+  border-color: rgba(23, 162, 184, 0.4);
+}
+
+.danger:flat:disabled{
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+.warning:flat:disabled{
+  background-color: rgba(255, 193, 7, 0.1);
+}
+
+.success:flat:disabled{
+  background-color: rgba(23, 162, 184, 0.1);
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  Basic widgets  */
+
+QWidget {
+  background-color: #31363b;
+}
+
+QGroupBox,
+QFrame {
+  background-color: #31363b;
+  border: 2px solid #4f5b62;
+  border-radius: 4px;
+}
+
+QGroupBox.fill_background,
+QFrame.fill_background {
+  background-color: #232629;
+  border: 2px solid #232629;
+  border-radius: 4px;
+}
+
+QSplitter {
+  background-color: transparent;
+  border: none
+}
+
+QStatusBar {
+  color: #ffffff;
+  background-color: rgba(79, 91, 98, 0.2);
+  border-radius: 0px;
+}
+
+QScrollArea,
+QStackedWidget,
+QWidget &gt; QToolBox,
+QToolBox &gt; QWidget,
+QTabWidget &gt; QWidget {
+  border: none;
+}
+
+QTabWidget::pane {
+  border: none;
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  Inputs  */
+
+QDateTimeEdit,
+QSpinBox,
+QDoubleSpinBox,
+QTextEdit,
+QLineEdit,
+QPushButton {
+  color: #ffff00;
+  background-color: #31363b;
+  border: 2px solid #ffff00;
+  border-radius: 4px;
+  height: 32px;
+}
+
+QDateTimeEdit,
+QSpinBox,
+QDoubleSpinBox,
+QTreeView,
+QListView,
+QLineEdit,
+QComboBox {
+  padding-left: 16px;
+  border-radius: 0px;
+  background-color: #232629;
+  border-width: 0 0 2px 0;
+  border-radius: 0px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  height: 32px;
+}
+
+QPlainTextEdit {
+  border-radius: 4px;
+  padding: 8px 16px;
+  background-color: #31363b;
+  border: 2px solid #4f5b62;
+}
+
+QTextEdit {
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: #232629;
+}
+
+QDateTimeEdit:disabled,
+QSpinBox:disabled,
+QDoubleSpinBox:disabled,
+QTextEdit:disabled,
+QLineEdit:disabled {
+  color: rgba(255, 255, 0, 0.2);
+  background-color: rgba(35, 38, 41, 0.75);
+  border: 2px solid rgba(255, 255, 0, 0.2);
+  border-width: 0 0 2px 0;
+  padding: 0px 16px;
+  border-radius: 0px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  height: 32px;
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QComboBox  */
+
+QComboBox {
+  color: #ffff00;
+  border: 1px solid #ffff00;
+  border-width: 0 0 2px 0;
+  background-color: #232629;
+  border-radius: 0px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  height: 36px;
+}
+
+QComboBox:disabled {
+  color: rgba(255, 255, 0, 0.2);
+  background-color: rgba(35, 38, 41, 0.75);
+  border-bottom: 2px solid rgba(255, 255, 0, 0.2);
+}
+
+QComboBox::drop-down {
+  border: none;
+  color: #ffff00;
+  width: 20px;
+}
+
+QComboBox::down-arrow {
+  image: url(:/HousePricePrediction/Resimler/downarrow.svg);
+  margin-right: 12px;
+}
+
+QComboBox::down-arrow:disabled {
+  image: url(icon:/disabled/downarrow.svg);
+  margin-right: 12px;
+}
+
+QComboBox QAbstractItemView {
+  background-color: #232629;
+  border: 2px solid #4f5b62;
+  border-radius: 4px;
+}
+
+QComboBox[frame='false'] {
+  color: #ffff00;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+QComboBox[frame='false']:disabled {
+  color: rgba(255, 255, 0, 0.2);
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  Spin buttons  */
+
+QDateTimeEdit::up-button,
+QDoubleSpinBox::up-button,
+QSpinBox::up-button {
+  subcontrol-origin: border;
+  subcontrol-position: top right;
+  width: 20px;
+  image: url(:/HousePricePrediction/Resimler/uparrow.svg);
+  border-width: 0px;
+  margin-right: 5px;
+}
+
+QDateTimeEdit::up-button:disabled,
+QDoubleSpinBox::up-button:disabled,
+QSpinBox::up-button:disabled {
+  image: url(icon:/disabled/uparrow.svg);
+}
+
+QDateTimeEdit::down-button,
+QDoubleSpinBox::down-button,
+QSpinBox::down-button {
+  subcontrol-origin: border;
+  subcontrol-position: bottom right;
+  width: 20px;
+  image: url(:/HousePricePrediction/Resimler/downarrow.svg);
+  border-width: 0px;
+  border-top-width: 0;
+  margin-right: 5px;
+}
+
+QDateTimeEdit::down-button:disabled,
+QDoubleSpinBox::down-button:disabled,
+QSpinBox::down-button:disabled {
+  image: url(icon:/disabled/downarrow.svg);
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QPushButton  */
+
+QPushButton {
+  text-transform: uppercase;
+  margin: 0px;
+  padding: 0px 16px;
+  height: 32px;
+  font-weight: bold;
+
+  
+    border-radius: 4px;
+  
+
+
+}
+
+QPushButton:checked,
+QPushButton:pressed {
+  color: #31363b;
+  background-color: #ffff00;
+}
+
+QPushButton:flat {
+  margin: 0px;
+  color: #ffff00;
+  border: none;
+  background-color: transparent;
+}
+
+QPushButton:flat:hover {
+  background-color: rgba(255, 255, 0, 0.2);
+}
+
+QPushButton:flat:pressed,
+QPushButton:flat:checked {
+  background-color: rgba(255, 255, 0, 0.1);
+}
+
+QPushButton:disabled {
+  color: rgba(79, 91, 98, 0.75);
+  background-color: transparent;
+  border-color:  #4f5b62;
+}
+
+QPushButton:flat:disabled {
+  color: rgba(79, 91, 98, 0.75);
+  background-color: rgba(79, 91, 98, 0.25);
+  border: none;
+}
+
+QPushButton:disabled {
+  border: 2px solid rgba(79, 91, 98, 0.75);
+}
+
+QPushButton:checked:disabled {
+  color: #232629;
+  background-color: #4f5b62;
+  border-color:  #4f5b62;
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QTabBar  */
+
+QTabBar{
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+QTabBar::tab {
+  color: #ffffff;
+  border: 0px;
+}
+
+QTabBar::tab:bottom,
+QTabBar::tab:top{
+  padding: 0 16px;
+  height: 28px;
+}
+
+QTabBar::tab:left,
+QTabBar::tab:right{
+  padding: 16px 0;
+  width: 28px;
+}
+
+QTabBar::tab:top:selected,
+QTabBar::tab:top:hover {
+  color: #ffff00;
+  border-bottom: 2px solid #ffff00;
+}
+
+QTabBar::tab:bottom:selected,
+QTabBar::tab:bottom:hover {
+  color: #ffff00;
+  border-top: 2px solid #ffff00;
+}
+
+QTabBar::tab:right:selected,
+QTabBar::tab:right:hover {
+  color: #ffff00;
+  border-left: 2px solid #ffff00;
+}
+
+QTabBar::tab:left:selected,
+QTabBar::tab:left:hover {
+  color: #ffff00;
+  border-right: 2px solid #ffff00;
+}
+
+QTabBar QToolButton:hover,
+QTabBar QToolButton {
+  border: 20px;
+  background-color: #31363b;
+}
+
+QTabBar QToolButton::up-arrow {
+  image: url(icon:/disabled/uparrow2.svg);
+}
+
+QTabBar QToolButton::up-arrow:hover {
+  image: url(:/HousePricePrediction/Resimler/uparrow2.svg);
+}
+
+QTabBar QToolButton::down-arrow {
+  image: url(icon:/disabled/downarrow2.svg);
+}
+
+QTabBar QToolButton::down-arrow:hover {
+  image: url(:/HousePricePrediction/Resimler/downarrow2.svg);
+}
+
+QTabBar QToolButton::right-arrow {
+  image: url(:/HousePricePrediction/Resimler/rightarrow2.svg);
+}
+
+QTabBar QToolButton::right-arrow:hover {
+  image: url(icon:/disabled/rightarrow2.svg);
+}
+
+QTabBar QToolButton::left-arrow {
+  image: url(:/HousePricePrediction/Resimler/leftarrow2.svg);
+}
+
+QTabBar QToolButton::left-arrow:hover {
+  image: url(icon:/disabled/leftarrow2.svg);
+}
+
+QTabBar::close-button {
+  image: url(icon:/disabled/tab_close.svg);
+}
+
+QTabBar::close-button:hover {
+  image: url(:/HousePricePrediction/Resimler/tab_close.svg);
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QGroupBox  */
+
+QGroupBox {
+  padding: 16px;
+  padding-top: 36px;
+  line-height: ;
+  text-transform: uppercase;
+  font-size: ;
+}
+
+QGroupBox::title {
+  color: rgba(255, 255, 255, 0.4);
+  subcontrol-origin: margin;
+  subcontrol-position: top left;
+  padding: 16px;
+  background-color: #31363b;
+  background-color: transparent;
+  height: 36px;
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QRadioButton and QCheckBox labels  */
+
+QRadioButton,
+QCheckBox {
+  spacing: 12px;
+  color: #ffffff;
+  line-height: 14px;
+  height: 36px;
+  spacing: 5px;
+
+  background-color: transparent;
+}
+
+QRadioButton:disabled,
+QCheckBox:disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  General Indicators  */
+
+QGroupBox::indicator {
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+}
+
+QMenu::indicator,
+QListView::indicator,
+QTableWidget::indicator,
+QRadioButton::indicator,
+QCheckBox::indicator {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+color:yellow
+ }
+
+/*  ------------------------------------------------------------------------  */
+/*  QListView Indicator  */
+
+QListView::indicator:checked,
+QListView::indicator:checked:selected,
+QListView::indicator:checked:focus {
+  image: url(:/HousePricePrediction/Resimler/checklist.svg);
+}
+
+QListView::indicator:checked:selected:active {
+  image: url(:/HousePricePrediction/Resimler/checklist_invert.svg);
+}
+
+QListView::indicator:checked:disabled {
+  image: url(icon:/disabled/checklist.svg);
+}
+
+QListView::indicator:indeterminate,
+QListView::indicator:indeterminate:selected,
+QListView::indicator:indeterminate:focus {
+  image: url(:/HousePricePrediction/Resimler/checklist_indeterminate.svg);
+}
+
+QListView::indicator:indeterminate:selected:active {
+  image: url(:/HousePricePrediction/Resimler/checklist_indeterminate_invert.svg);
+}
+
+QListView::indicator:indeterminate:disabled {
+  image: url(icon:/disabled/checklist_indeterminate.svg);
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QTableView Indicator  */
+
+QTableView::indicator:enabled:checked,
+QTableView::indicator:enabled:checked:selected,
+QTableView::indicator:enabled:checked:focus {
+  image: url(:/HousePricePrediction/Resimler/checkbox_checked.svg);
+}
+
+QTableView::indicator:checked:selected:active {
+  image: url(:/HousePricePrediction/Resimler/checkbox_checked_invert.svg);
+}
+
+QTableView::indicator:disabled:checked,
+QTableView::indicator:disabled:checked:selected,
+QTableView::indicator:disabled:checked:focus {
+  image: url(icon:/disabled/checkbox_checked.svg);
+}
+
+QTableView::indicator:enabled:unchecked,
+QTableView::indicator:enabled:unchecked:selected,
+QTableView::indicator:enabled:unchecked:focus {
+  image: url(:/HousePricePrediction/Resimler/checkbox_unchecked.svg);
+}
+
+QTableView::indicator:unchecked:selected:active {
+  image: url(:/HousePricePrediction/Resimler/checkbox_unchecked_invert.svg);
+}
+
+QTableView::indicator:disabled:unchecked,
+QTableView::indicator:disabled:unchecked:selected,
+QTableView::indicator:disabled:unchecked:focus {
+  image: url(icon:/disabled/checkbox_unchecked.svg);
+}
+
+QTableView::indicator:enabled:indeterminate,
+QTableView::indicator:enabled:indeterminate:selected,
+QTableView::indicator:enabled:indeterminate:focus {
+  image: url(:/HousePricePrediction/Resimler/checkbox_indeterminate.svg);
+}
+
+QTableView::indicator:indeterminate:selected:active {
+  image: url(:/HousePricePrediction/Resimler/checkbox_indeterminate_invert.svg);
+}
+
+QTableView::indicator:disabled:indeterminate,
+QTableView::indicator:disabled:indeterminate:selected,
+QTableView::indicator:disabled:indeterminate:focus {
+  image: url(icon:/disabled/checkbox_indeterminate.svg);
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QCheckBox and QGroupBox Indicator  */
+
+QCheckBox::indicator:checked,
+QGroupBox::indicator:checked {
+  image: url(:/HousePricePrediction/Resimler/checkbox_checked.svg);
+}
+
+QCheckBox::indicator:unchecked,
+QGroupBox::indicator:unchecked {
+  image: url(:/HousePricePrediction/Resimler/checkbox_unchecked.svg);
+}
+
+QCheckBox::indicator:indeterminate,
+QGroupBox::indicator:indeterminate {
+  image: url(:/HousePricePrediction/Resimler/checkbox_indeterminate.svg);
+}
+
+QCheckBox::indicator:checked:disabled,
+QGroupBox::indicator:checked:disabled {
+  image: url(icon:/disabled/checkbox_checked.svg);
+}
+
+QCheckBox::indicator:unchecked:disabled,
+QGroupBox::indicator:unchecked:disabled {
+  image: url(icon:/disabled/checkbox_unchecked.svg);
+}
+
+QCheckBox::indicator:indeterminate:disabled,
+QGroupBox::indicator:indeterminate:disabled {
+  image: url(icon:/disabled/checkbox_indeterminate.svg);
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QRadioButton Indicator  */
+
+QRadioButton::indicator:checked {
+  image: url(:/HousePricePrediction/Resimler/radiobutton_checked.svg);
+}
+
+QRadioButton::indicator:unchecked {
+  image: url(:/HousePricePrediction/Resimler/radiobutton_unchecked.svg);
+}
+
+QRadioButton::indicator:checked:disabled {
+  image: url(icon:/disabled/radiobutton_checked.svg);
+}
+
+QRadioButton::indicator:unchecked:disabled {
+  image: url(icon:/disabled/radiobutton_unchecked.svg);
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QDockWidget  */
+
+QDockWidget {
+  color: #ffffff;
+  text-transform: uppercase;
+  border: 2px solid #232629;
+  titlebar-close-icon: url(:/HousePricePrediction/Resimler/close.svg);
+  titlebar-normal-icon: url(:/HousePricePrediction/Resimler/float.svg);
+  border-radius: 4px;
+}
+
+QDockWidget::title {
+  text-align: left;
+  padding-left: 36px;
+  padding: 3px;
+  margin-top: 4px;
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QComboBox indicator  */
+
+QComboBox::indicator:checked {
+  image: url(:/HousePricePrediction/Resimler/checklist.svg);
+}
+
+QComboBox::indicator:checked:selected {
+  image: url(:/HousePricePrediction/Resimler/checklist_invert.svg);
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  Menu Items  */
+
+QComboBox::item,
+QCalendarWidget QMenu::item,
+QMenu::item {
+  height: 28px;
+  border: 8px solid transparent;
+  color: #ffffff;
+}
+
+QCalendarWidget QMenu::item,
+QMenu::item {
+  
+    padding: 0px 24px 0px 8px;  /* pyside6 or pyqt6 */
+  
+}
+
+QComboBox::item:selected,
+QCalendarWidget QMenu::item:selected,
+QMenu::item:selected {
+  color: #000000;
+  background-color: #ffff5a;
+  border-radius: 0px;
+}
+
+QComboBox::item:disabled,
+QCalendarWidget QMenu::item:disabled,
+QMenu::item:disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QMenu  */
+
+QCalendarWidget QMenu,
+QMenu {
+  background-color: #232629;
+  border: 2px solid #4f5b62;
+  border-radius: 4px;
+}
+
+QMenu::separator {
+  height: 2px;
+  background-color: #4f5b62;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+QMenu::right-arrow{
+  image: url(:/HousePricePrediction/Resimler/rightarrow.svg);
+  width: 16px;
+  height: 16px;
+}
+
+QMenu::right-arrow:selected{
+  image: url(icon:/disabled/rightarrow.svg);
+}
+
+QMenu::indicator:non-exclusive:unchecked {
+  image: url(:/HousePricePrediction/Resimler/checkbox_unchecked.svg);
+}
+
+QMenu::indicator:non-exclusive:unchecked:selected {
+  image: url(:/HousePricePrediction/Resimler/checkbox_unchecked_invert.svg);
+}
+
+QMenu::indicator:non-exclusive:checked {
+  image: url(:/HousePricePrediction/Resimler/checkbox_checked.svg);
+}
+
+QMenu::indicator:non-exclusive:checked:selected {
+  image: url(:/HousePricePrediction/Resimler/checkbox_checked_invert.svg);
+}
+
+QMenu::indicator:exclusive:unchecked {
+  image: url(:/HousePricePrediction/Resimler/radiobutton_unchecked.svg);
+}
+
+QMenu::indicator:exclusive:unchecked:selected {
+  image: url(:/HousePricePrediction/Resimler/radiobutton_unchecked_invert.svg);
+}
+
+QMenu::indicator:exclusive:checked {
+  image: url(:/HousePricePrediction/Resimler/radiobutton_checked.svg);
+}
+
+QMenu::indicator:exclusive:checked:selected {
+  image: url(:/HousePricePrediction/Resimler/radiobutton_checked_invert.svg);
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QMenuBar  */
+
+QMenuBar {
+  background-color: #232629;
+  color: #ffffff;
+}
+
+QMenuBar::item {
+  height: 32px;
+  padding: 8px;
+  background-color: transparent;
+  color: #ffffff;
+}
+
+QMenuBar::item:selected,
+QMenuBar::item:pressed {
+  color: #000000;
+  background-color: #ffff5a;
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QToolBox  */
+
+QToolBox::tab {
+  background-color: #232629;
+  color: #ffffff;
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding-left: 15px;
+}
+
+QToolBox::tab:selected,
+QToolBox::tab:hover {
+  background-color: rgba(255, 255, 0, 0.2);
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QProgressBar  */
+
+QProgressBar {
+  border-radius: 0;
+  background-color: #4f5b62;
+  text-align: center;
+  color: transparent;
+}
+
+QProgressBar::chunk {
+  background-color: #ffff00;
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QScrollBar  */
+
+QScrollBar:horizontal {
+  border: 0;
+  background: #232629;
+  height: 8px;
+}
+
+QScrollBar:vertical {
+  border: 0;
+  background: #232629;
+  width: 8px;
+}
+
+QScrollBar::handle {
+  background: rgba(255, 255, 0, 0.1);
+}
+
+QScrollBar::handle:horizontal {
+  min-width: 24px;
+}
+
+QScrollBar::handle:vertical {
+  min-height: 24px;
+}
+
+QScrollBar::handle:vertical:hover,
+QScrollBar::handle:horizontal:hover {
+  background: #ffff00;
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical,
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal {
+  border: 0;
+  background: transparent;
+  width: 0px;
+  height: 0px;
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QScrollBar-Big  */
+
+QScrollBar.big:horizontal {
+  border: 0;
+  background: #232629;
+  height: 36px;
+}
+
+QScrollBar.big:vertical {
+  border: 0;
+  background: #232629;
+  width: 36px;
+}
+
+QScrollBar.big::handle,
+QScrollBar.big::handle:vertical:hover,
+QScrollBar.big::handle:horizontal:hover {
+  background: #ffff00;
+}
+
+QScrollBar.big::handle:horizontal {
+  min-width: 24px;
+}
+
+QScrollBar.big::handle:vertical {
+  min-height: 24px;
+}
+
+QScrollBar.big::add-line:vertical,
+QScrollBar.big::sub-line:vertical,
+QScrollBar.big::add-line:horizontal,
+QScrollBar.big::sub-line:horizontal {
+  border: 0;
+  background: transparent;
+  width: 0px;
+  height: 0px;
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QSlider  */
+
+QSlider:horizontal {
+  min-height: 24px;
+  max-height: 24px;
+}
+
+QSlider:vertical {
+  min-width: 24px;
+  max-width: 24px;
+}
+
+QSlider::groove:horizontal {
+  height: 4px;
+  background: #393939;
+  margin: 0 12px;
+}
+
+QSlider::groove:vertical {
+  width: 4px;
+  background: #393939;
+  margin: 12px 0;
+  border-radius: 24px;
+}
+
+QSlider::handle:horizontal {
+  image: url(:/HousePricePrediction/Resimler/slider.svg);
+  width: 24px;
+  height: 24px;
+  margin: -24px -12px;
+}
+
+QSlider::handle:vertical {
+  image: url(:/HousePricePrediction/Resimler/slider.svg);
+  border-radius: 24px;
+  width: 24px;
+  height: 24px;
+  margin: -12px -24px;
+}
+
+QSlider::add-page {
+background: #232629;
+}
+
+QSlider::sub-page {
+background: #ffff00;
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QLabel  */
+
+QLabel {
+  border: none;
+  background: transparent;
+  color: #ffffff
+}
+
+QLabel:disabled {
+  color: rgba(255, 255, 255, 0.2)
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  VLines and HLinex  */
+
+QFrame[frameShape=&quot;4&quot;] {
+    border-width: 1px 0 0 0;
+    background: none;
+}
+
+QFrame[frameShape=&quot;5&quot;] {
+    border-width: 0 1px 0 0;
+    background: none;
+}
+
+QFrame[frameShape=&quot;4&quot;],
+QFrame[frameShape=&quot;5&quot;] {
+  border-color: #4f5b62;
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QToolBar  */
+
+QToolBar {
+  background: #31363b;
+  border: 0px solid;
+}
+
+QToolBar:horizontal {
+  border-bottom: 1px solid #4f5b62;
+}
+
+QToolBar:vertical {
+  border-right: 1px solid #4f5b62;
+}
+
+QToolBar::handle:horizontal {
+  image: url(:/HousePricePrediction/Resimler/toolbar-handle-horizontal.svg);
+}
+
+QToolBar::handle:vertical {
+  image: url(:/HousePricePrediction/Resimler/toolbar-handle-vertical.svg);
+}
+
+QToolBar::separator:horizontal {
+  border-right: 1px solid #4f5b62;
+  border-left: 1px solid #4f5b62;
+  width: 1px;
+}
+
+QToolBar::separator:vertical {
+  border-top: 1px solid #4f5b62;
+  border-bottom: 1px solid #4f5b62;
+  height: 1px;
+}
+
+
+/*  ------------------------------------------------------------------------  */
+/*  QToolButton  */
+
+QToolButton {
+  background: #31363b;
+  border: 0px;
+  height: 36px;
+  margin: 3px;
+  padding: 3px;
+  border-right: 12px solid #31363b;
+  border-left: 12px solid #31363b;
+}
+
+QToolButton:hover {
+  background: #4f5b62;
+  border-right: 12px solid #4f5b62;
+  border-left: 12px solid #4f5b62;
+}
+
+QToolButton:pressed {
+  background: #232629;
+  border-right: 12px solid #232629;
+  border-left: 12px solid #232629;
+}
+
+QToolButton:checked {
+  background: #4f5b62;
+  border-left: 12px solid #4f5b62;
+  border-right: 12px solid #ffff00;
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  General viewers  */
+
+QTableView {
+  background-color: #31363b;
+  border: 1px solid #232629;
+  border-radius: 4px;
+}
+
+QTreeView,
+QListView {
+  border-radius: 4px;
+  padding: 4px;
+  margin: 0px;
+  border: 0px;
+}
+
+QTableView::item,
+QTreeView::item,
+QListView::item {
+  padding: 4px;
+  min-height: 32px;
+  color: #ffffff;
+  selection-color: #ffffff; /* For Windows */
+  border-color: transparent;  /* Fix #34 */
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  Items Selection */
+
+QTableView::item:selected,
+QTreeView::item:selected,
+QListView::item:selected {
+  background-color: rgba(255, 255, 0, 0.2);
+  selection-background-color: rgba(255, 255, 0, 0.2);
+  color: #ffffff;
+  selection-color: #ffffff; /* For Windows */
+}
+
+QTableView::item:selected:focus,
+QTreeView::item:selected:focus,
+QListView::item:selected:focus {
+  background-color: #ffff00;
+  selection-background-color: #ffff00;
+  color: #000000;
+  selection-color: #000000; /* For Windows */
+}
+
+QTableView {
+  selection-background-color: rgba(255, 255, 0, 0.2);
+}
+
+QTableView:focus {
+  selection-background-color: #ffff00;
+}
+
+QTableView::item:disabled {
+  color: rgba(255, 255, 255, 0.3);
+  selection-color: rgba(255, 255, 255, 0.3);
+  background-color: #232629;
+  selection-background-color: #232629;
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QTreeView  */
+
+QTreeView::branch{
+  background-color: #232629;
+}
+
+QTreeView::branch:closed:has-children:has-siblings,
+QTreeView::branch:closed:has-children:!has-siblings {
+  image: url(:/HousePricePrediction/Resimler/branch-closed.svg);
+}
+
+QTreeView::branch:open:has-children:!has-siblings,
+QTreeView::branch:open:has-children:has-siblings {
+  image: url(:/HousePricePrediction/Resimler/branch-open.svg);
+}
+
+QTreeView::branch:has-siblings:!adjoins-item {
+  border-image: url(icon:/disabled/vline.svg) 0;
+}
+
+QTreeView::branch:has-siblings:adjoins-item {
+    border-image: url(icon:/disabled/branch-more.svg) 0;
+}
+
+QTreeView::branch:!has-children:!has-siblings:adjoins-item,
+QTreeView::branch:has-children:!has-siblings:adjoins-item {
+    border-image: url(icon:/disabled/branch-end.svg) 0;
+}
+
+QTreeView QHeaderView::section {
+  border: none;
+}
+
+
+/*  ------------------------------------------------------------------------  */
+/*  Custom buttons  */
+
+QPushButton.danger {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+QPushButton.danger:checked,
+QPushButton.danger:pressed {
+  color: #31363b;
+  background-color: #dc3545;
+}
+
+QPushButton.warning{
+  border-color: #ffc107;
+  color: #ffc107;
+}
+
+QPushButton.warning:checked,
+QPushButton.warning:pressed {
+  color: #31363b;
+  background-color: #ffc107;
+}
+
+QPushButton.success {
+  border-color: #17a2b8;
+  color: #17a2b8;
+}
+
+QPushButton.success:checked,
+QPushButton.success:pressed {
+  color: #31363b;
+  background-color: #17a2b8;
+}
+
+QPushButton.danger:flat:hover {
+  background-color: rgba(220, 53, 69, 0.2);
+}
+
+QPushButton.danger:flat:pressed,
+QPushButton.danger:flat:checked {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+}
+
+QPushButton.warning:flat:hover {
+  background-color: rgba(255, 193, 7, 0.2);
+}
+
+QPushButton.warning:flat:pressed,
+QPushButton.warning:flat:checked {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: #ffc107;
+}
+
+QPushButton.success:flat:hover {
+  background-color: rgba(23, 162, 184, 0.2);
+}
+
+QPushButton.success:flat:pressed,
+QPushButton.success:flat:checked {
+  background-color: rgba(23, 162, 184, 0.1);
+  color: #17a2b8;
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QTableView  */
+
+QTableCornerButton::section {
+  background-color: #232629;
+  border-radius: 0px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #31363b;
+}
+
+QTableView {
+  alternate-background-color: rgba(35, 38, 41, 0.7);
+}
+
+QHeaderView {
+  border: none;
+}
+
+QHeaderView::section {
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  background-color: #232629;
+  padding: 0 24px;
+  height: 36px;
+  border-radius: 0px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #31363b;
+}
+
+QHeaderView::section:vertical {
+
+}
+
+QHeaderView::section:horizontal {
+
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QLCDNumber  */
+
+QLCDNumber {
+  color: #ffff00;
+  background-color:rgba(255, 255, 0, 0.1);
+  border: 1px solid rgba(255, 255, 0, 0.3);
+  border-radius: 4px;
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QCalendarWidget  */
+
+#qt_calendar_prevmonth {
+  qproperty-icon: url(:/HousePricePrediction/Resimler/leftarrow.svg);
+}
+
+#qt_calendar_nextmonth {
+  qproperty-icon: url(:/HousePricePrediction/Resimler/rightarrow.svg);
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  Inline QLineEdit  */
+
+QTreeView QLineEdit,
+QTableView QLineEdit,
+QListView QLineEdit {
+  color: #ffffff;
+  background-color: #232629;
+  border: 1px solid unset;
+  border-radius: unset;
+  padding: unset;
+  padding-left: unset;
+  height: unset;
+  border-width: unset;
+  border-top-left-radius: unset;
+  border-top-right-radius: unset;
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QToolTip  */
+
+QToolTip {
+  padding: 4px;
+  border: 1px solid #31363b;
+  border-radius: 4px;
+  color: #ffffff;
+  background-color: #4f5b62;
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  QDialog  */
+
+
+
+QDialog QToolButton:disabled {
+  background-color: #232629;
+  color: #ffffff
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  Grips  */
+
+
+QMainWindow::separator:vertical,
+QSplitter::handle:horizontal {
+  image: url(:/HousePricePrediction/Resimler/splitter-horizontal.svg);
+}
+
+QMainWindow::separator:horizontal,
+QSplitter::handle:vertical {
+  image: url(:/HousePricePrediction/Resimler/splitter-vertical.svg);
+}
+
+QSizeGrip {
+  image: url(:/HousePricePrediction/Resimler/sizegrip.svg);
+  background-color: transparent;
+}
+
+QMenuBar QToolButton:hover,
+QMenuBar QToolButton:pressed,
+QMenuBar QToolButton {
+  border-width: 0;
+  border-left: 10px;
+  border-image: url(:/HousePricePrediction/Resimler/rightarrow2.svg);
+  background-color: transparent;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="3" column="4">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Bina kalitesi</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="5">
+     <widget class="QSpinBox" name="spinBanyoSayisi">
+      <property name="minimum">
+       <number>0</number>
+      </property>
+      <property name="maximum">
+       <number>10</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="5">
+     <widget class="QSpinBox" name="spinGarajAracSayisi">
+      <property name="maximum">
+       <number>4</number>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="2">
+     <widget class="QTextEdit" name="txtGarajM2">
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; font-size:13px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="acceptRichText">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Bina Yılı</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QLabel" name="label_8">
+      <property name="text">
+       <string>Garaj</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="1">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="3" column="5">
+     <widget class="QSpinBox" name="spinBinaKalitesi">
+      <property name="minimum">
+       <number>0</number>
+      </property>
+      <property name="maximum">
+       <number>10</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="1">
+     <widget class="QCheckBox" name="chkSomine">
+      <property name="text">
+       <string>Şömine</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QLabel" name="lblGaraj">
+      <property name="text">
+       <string>Garaj m2</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Oda Sayısı</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>Net m2</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QSpinBox" name="spinBinaYili">
+      <property name="maximum">
+       <number>2100</number>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <widget class="QTextEdit" name="txtNetM2">
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="overwriteMode">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="2" colspan="3">
+     <widget class="QPushButton" name="btnHesapla">
+      <property name="text">
+       <string>Hesapla</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="4">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Brüt m2</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="2">
+     <widget class="QComboBox" name="cmbGaraj">
+      <item>
+       <property name="text">
+        <string>Yok</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Var</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="4" column="4">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Banyo Sayısı</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLabel" name="label_11">
+      <property name="text">
+       <string>Mahalle</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2" colspan="4">
+     <widget class="QComboBox" name="cmbMahalle">
+      <item>
+       <property name="text">
+        <string>Bluestem</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Brookside</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Crawfor</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Edwards</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Gilbert</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Mitchel</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Old Town</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>SWISU</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Sawyer</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Somerset</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Timber</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Veenker</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="8" column="2">
+     <widget class="QSpinBox" name="spinSomineSayisi">
+      <property name="maximumSize">
+       <size>
+        <width>60</width>
+        <height>16777215</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <widget class="QSpinBox" name="spinToplamOdaSayisi">
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>20</number>
+      </property>
+      <property name="value">
+       <number>1</number>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1" colspan="5">
+     <widget class="QLabel" name="lblResim">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>445</width>
+        <height>200</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="4">
+     <widget class="QLabel" name="lblGarajAracSayisi">
+      <property name="text">
+       <string>Garaj Araç Sayısı</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="1" colspan="5">
+     <widget class="QLabel" name="lblSonuc">
+      <property name="text">
+       <string>Tahmini Fiyat</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="5">
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="5" column="5">
+     <widget class="QTextEdit" name="txtBrutM2">
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>cmbMahalle</tabstop>
+  <tabstop>spinBinaYili</tabstop>
+  <tabstop>spinBinaKalitesi</tabstop>
+  <tabstop>spinToplamOdaSayisi</tabstop>
+  <tabstop>spinBanyoSayisi</tabstop>
+  <tabstop>txtNetM2</tabstop>
+  <tabstop>txtBrutM2</tabstop>
+  <tabstop>cmbGaraj</tabstop>
+  <tabstop>txtGarajM2</tabstop>
+  <tabstop>spinGarajAracSayisi</tabstop>
+  <tabstop>chkSomine</tabstop>
+  <tabstop>spinSomineSayisi</tabstop>
+  <tabstop>btnHesapla</tabstop>
+ </tabstops>
+ <resources>
+  <include location="HousePricePrediction.qrc"/>
+ </resources>
+ <connections/>
+</ui>
