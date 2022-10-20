@@ -1,4 +1,4 @@
-## ML Modelling - Drug Disease Analysis
+## AI House-Guide Application
 
 [![Build Status](https://img.shields.io/badge/lang-T%C3%BCrk%C3%A7e-red)](https://github.com/BerkKilicoglu/AI-House-Guide-Application/blob/main/README.tr.md) [![Build Status](https://img.shields.io/badge/lang-English-blue)](https://github.com/BerkKilicoglu/AI-House-Guide-Application/blob/main/README.md)
 
