@@ -8,4 +8,4 @@ Kullanıcının girdiği özelliklere göre ev fiyatını tahmin edebilen masaü
 
 Eğitim modeli: scikit-Gradient Boosting Regression. Kaggle'da bulanan açık veri seti kullanılmıştır. Veri seti için lütfen [TIKLAYINIZ!](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/data)
 
-`./ai/trained_model.pkl`: Önceden eğitilmiş, uygulamada kullanılan makine öğrenme modelini içerir.
+`./ai/trained_model.pkl`: Uygulamada kullanılan, önceden eğitilmiş makine öğrenme modelini içerir.
